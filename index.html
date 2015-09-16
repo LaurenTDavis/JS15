@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="app" lang="en">
 <head>
   <meta charset="utf-8">
   <title>Untitled</title>
   <link rel="stylesheet" type="text/css" href="main.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
 </head>
-<body>
-<a href="about.html">click this</a>
-	
+<body ng-controller="mainController">
+	<div ng-click="addAppt()">Hi</div>
+
+	<form>
+		<input ng-model="">
+		<input ng-model="">
+		<button type="Submit">Submit</button>
+	</form>
+
 	<script src="main.js"></script>
 
 </body>
