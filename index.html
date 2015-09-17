@@ -4,16 +4,27 @@
   <meta charset="utf-8">
   <title>Untitled</title>
   <link rel="stylesheet" type="text/css" href="main.css">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
 </head>
 <body ng-controller="mainController">
-	<div ng-click="addAppt()">Hi</div>
 
-	<form ng-show="" ng-submit="">
-		<input ng-model="">
-		<input ng-model="">
-		<button type="Submit">Submit</button>
+	<form class="formStyle" ng-show="userInput" ng-submit="submitAppt()">
+		<h5>Appointment Name:</h5><textarea ng-model="newName" name="name"></textarea>
+		<h5>Appointment Description:</h5><textarea ng-model="newDescription" name="description"></textarea>
+		<button type="Submit">Submit Appointment</button>
 	</form>
+
+	<div class="dayColor" ng-click="addAppt($index)" ng-repeat="day in days">
+		{{day.toDateString()}}
+		<div ng-click="change($event)" ng-repeat="appt in day.appts">
+			<div ng-click="edit(task, $event)" ng-show="!task.editing">{{task.name}} - {{task.description}}</div>
+			<form ng-submit="edit(task, $event)" ng-show="task.editing">
+				<input ng-model="input.name"> - <input ng-model="input.description"><input type="submit">
+			</form>
+
+		</div>
+
+	</div>
 
 	<script src="main.js"></script>
 
